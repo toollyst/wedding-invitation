@@ -11,7 +11,7 @@ import Footer from '@/components/Footer';
 
 export default function Page() {
   return (
-    <>
+    <div className="mx-auto w-105 bg-emerald-50">
       <Hero />
       <InvitationMessage />
       <Introduce />
@@ -22,6 +22,6 @@ export default function Page() {
       <RSVP />
       <Bank />
       <Footer />
-    </>
+    </div>
   );
 }
