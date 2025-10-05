@@ -1,10 +1,15 @@
+import { WEDDING_INFO } from '@/constants/weddingInfo';
+
 const Calender = () => {
+  const today = new Date();
+  const diffTime = WEDDING_INFO.weddingDate.getTime() - today.getTime();
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  console.log(diffDays);
   return (
-    <div>
-      <div>예식 일정</div>
-      <div>2025년 10월 1일</div>
-      <div>10:00</div>
-      <div>서울 예식장</div>
+    <div className="flex flex-col items-center gap-2 my-10 mx-8 border-t-2 border-b-2 border-[#FFDCDC] py-2">
+      <div>{WEDDING_INFO.weddingDateString}</div>
+      <div>{WEDDING_INFO.weddingVenue}</div>
+      <div>D-{diffDays}</div>
     </div>
   );
 };

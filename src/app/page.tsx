@@ -11,7 +11,7 @@ import Footer from '@/components/Footer';
 
 export default function Page() {
   return (
-    <div className="mx-auto w-105 bg-emerald-50">
+    <div className="mx-auto w-105 bg-gradient-to-t from-[#FFDCDF] via-[#FFDCDC]/40 to-[#FFF2EB]">
       <Hero />
       <InvitationMessage />
       <Introduce />
