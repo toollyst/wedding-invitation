@@ -17,7 +17,7 @@ const ContactItem = ({ name, phone }: { name: string; phone: string }) => {
       <div className="flex gap-2">
         <button
           onClick={() => handlePhoneCall(phone)}
-          className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+          className="p-2 rounded-full cursor-pointer transition-colors"
         >
           <Image
             src="/phone.svg"
@@ -29,7 +29,7 @@ const ContactItem = ({ name, phone }: { name: string; phone: string }) => {
         </button>
         <button
           onClick={() => handleSendMessage(phone)}
-          className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+          className="p-2 rounded-full cursor-pointer transition-colors"
         >
           <Image
             src="/message.svg"

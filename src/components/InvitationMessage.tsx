@@ -12,7 +12,7 @@ const message = `
 
 const InvitationMessage = () => {
   return (
-    <div className="text-center my-10 flex flex-col items-center gap-3">
+    <div className="text-center py-10 flex flex-col items-center gap-3">
       <div className="text-xl font-bold">{title}</div>
       <div className="text-base whitespace-pre-line">{message}</div>
     </div>

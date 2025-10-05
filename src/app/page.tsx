@@ -11,17 +11,23 @@ import Footer from '@/components/Footer';
 
 export default function Page() {
   return (
-    <div className="mx-auto w-105 bg-gradient-to-t from-[#FFDCDF] via-[#FFDCDC]/40 to-[#FFF2EB]">
+    <div className="mx-auto w-105">
       <Hero />
-      <InvitationMessage />
-      <Introduce />
-      <Contact />
-      <Calender />
-      <Gallery />
-      <Map />
-      <RSVP />
-      <Bank />
-      <Footer />
+      <div className=" bg-gradient-to-t from-[#FFDCDF] via-[#FFDCDC]/40 to-[#FFF2EB]">
+        <InvitationMessage />
+        <Introduce />
+
+        <Calender />
+        <Map />
+        <RSVP />
+
+        <Gallery />
+
+        <Contact />
+        <Bank />
+
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -1,8 +1,13 @@
+import { WEDDING_INFO } from '@/constants/weddingInfo';
+
 const Map = () => {
   return (
-    <div>
+    <div className="flex flex-col item-center align-center text-center my-10">
       <div>오시는 길</div>
-      <div>서울 예식장</div>
+      <div>
+        {WEDDING_INFO.weddingAddress} {WEDDING_INFO.weddingVenue}
+      </div>
+      <div>여기에 지도</div>
     </div>
   );
 };
