@@ -1,6 +1,6 @@
 'use client';
 
-import { WEDDING_INFO } from '@/constants/weddingInfo';
+import { BRIDE_GROOM_INFO, VENUE_INFO } from '@/constants/weddingInfo';
 import Image from 'next/image';
 
 const ContactItem = ({ name, phone }: { name: string; phone: string }) => {
@@ -49,31 +49,31 @@ const Contact = () => {
     <div className="flex gap-2">
       <div className="flex-1 flex flex-col gap-6">
         <ContactItem
-          name={`신랑 ${WEDDING_INFO.groom.name}`}
-          phone={WEDDING_INFO.groom.phone}
+          name={`신랑 ${BRIDE_GROOM_INFO.groom.name}`}
+          phone={BRIDE_GROOM_INFO.groom.phone}
         />
         <ContactItem
-          name={`아버지 ${WEDDING_INFO.groomParents.father.name}`}
-          phone={WEDDING_INFO.groomParents.father.phone}
+          name={`아버지 ${BRIDE_GROOM_INFO.groomParents.father.name}`}
+          phone={BRIDE_GROOM_INFO.groomParents.father.phone}
         />
         <ContactItem
-          name={`어머니 ${WEDDING_INFO.groomParents.mother.name}`}
-          phone={WEDDING_INFO.groomParents.mother.phone}
+          name={`어머니 ${BRIDE_GROOM_INFO.groomParents.mother.name}`}
+          phone={BRIDE_GROOM_INFO.groomParents.mother.phone}
         />
       </div>
 
       <div className="flex-1 flex flex-col gap-6">
         <ContactItem
-          name={`신부 ${WEDDING_INFO.bride.name}`}
-          phone={WEDDING_INFO.bride.phone}
+          name={`신부 ${BRIDE_GROOM_INFO.bride.name}`}
+          phone={BRIDE_GROOM_INFO.bride.phone}
         />
         <ContactItem
-          name={`아버지 ${WEDDING_INFO.brideParents.father.name}`}
-          phone={WEDDING_INFO.brideParents.father.phone}
+          name={`아버지 ${BRIDE_GROOM_INFO.brideParents.father.name}`}
+          phone={BRIDE_GROOM_INFO.brideParents.father.phone}
         />
         <ContactItem
-          name={`어머니 ${WEDDING_INFO.brideParents.mother.name}`}
-          phone={WEDDING_INFO.brideParents.mother.phone}
+          name={`어머니 ${BRIDE_GROOM_INFO.brideParents.mother.name}`}
+          phone={BRIDE_GROOM_INFO.brideParents.mother.phone}
         />
       </div>
     </div>

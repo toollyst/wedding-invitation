@@ -1,4 +1,4 @@
-import { WEDDING_INFO } from '@/constants/weddingInfo';
+import { BRIDE_GROOM_INFO } from '@/constants/weddingInfo';
 import Image from 'next/image';
 
 const Footer = () => {
@@ -9,7 +9,7 @@ const Footer = () => {
           감사합니다
         </div>
         <div className="text-sm flex items-center justify-center">
-          Made by {WEDDING_INFO.groom.name}
+          Made by {BRIDE_GROOM_INFO.groom.name}
           <Image
             src="/heart.svg"
             alt="heart"
@@ -17,7 +17,7 @@ const Footer = () => {
             height={16}
             className="inline-block mx-1"
           />
-          {WEDDING_INFO.bride.name}
+          {BRIDE_GROOM_INFO.bride.name}
         </div>
       </div>
     </footer>

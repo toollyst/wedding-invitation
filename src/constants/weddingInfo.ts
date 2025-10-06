@@ -1,3 +1,19 @@
+export interface VenueInfo {
+  weddingDate: Date;
+  weddingDateString: string;
+  venueName: string;
+  venueNameDetail: string;
+  address: string;
+}
+
+export const VENUE_INFO: VenueInfo = {
+  weddingDate: new Date(2026, 8, 5, 11, 30),
+  weddingDateString: '2026년 9월 5일 오전 11시 30분',
+  venueName: '그랜드힐 컨벤션',
+  venueNameDetail: '2F 사브리나홀',
+  address: '서울 강남구 역삼로 607',
+};
+
 export interface Person {
   name: string;
   phone: string;
@@ -6,7 +22,7 @@ export interface Person {
   accountHolder?: string;
 }
 
-export interface WeddingInfo {
+export interface BrideGroomInfo {
   groom: Person;
   bride: Person;
   groomParents: {
@@ -17,13 +33,9 @@ export interface WeddingInfo {
     father: Person;
     mother: Person;
   };
-  weddingDate: Date;
-  weddingDateString: string;
-  weddingVenue: string;
-  weddingAddress: string;
 }
 
-export const WEDDING_INFO: WeddingInfo = {
+export const BRIDE_GROOM_INFO: BrideGroomInfo = {
   groom: {
     name: '심상원',
     phone: '010-3327-4025',
@@ -70,8 +82,4 @@ export const WEDDING_INFO: WeddingInfo = {
       accountHolder: '이은정',
     },
   },
-  weddingDate: new Date(2026, 8, 5, 11, 30),
-  weddingDateString: '2026년 9월 5일 오전 11시 30분',
-  weddingVenue: '그랜드힐 컨벤션',
-  weddingAddress: '서울 강남구 역삼로 607',
 };
