@@ -8,10 +8,12 @@ import Map from '@/components/Map';
 import RSVP from '@/components/RSVP';
 import Bank from '@/components/Bank';
 import Footer from '@/components/Footer';
+import ConfettiBackground from '@/components/ConfettiBackground';
 
 export default function Page() {
   return (
     <div className="mx-auto w-105">
+      <ConfettiBackground />
       <Hero />
       <div className=" bg-gradient-to-t from-[#FFDCDF] via-[#FFDCDC]/40 to-[#FFF2EB]">
         <InvitationMessage />
