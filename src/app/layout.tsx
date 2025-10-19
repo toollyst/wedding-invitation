@@ -6,6 +6,7 @@ import {
   Luxurious_Script,
 } from 'next/font/google';
 import './globals.css';
+import { ThemeProvider } from 'next-themes';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -43,6 +44,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${gowunDodum.variable} ${luxuriousScript.variable} antialiased`}
+        suppressHydrationWarning
       >
         {children}
       </body>
