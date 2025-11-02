@@ -1,18 +1,21 @@
+'use client';
+
 import { VENUE_INFO } from '@/constants/weddingInfo';
 import Image from 'next/image';
+import { useState } from 'react';
 
-const CAR_DESC = `[${VENUE_INFO.venueName}] 검색 (${VENUE_INFO.address})
+const title = '오시는 길';
 
-강남 → 잠실 (테헤란로 기준)
+const CAR_DESC = `강남 → 잠실 (테헤란로 기준)
 강남역에서 삼성역 방향 직진 후 삼성역 사거리 지나
-강남경찰서 사거리에서 우회전. 
-직진 후 400미터 지점에 위치 
+강남경찰서 사거리에서 우회전.
+직진 후 400미터 지점에 위치
 
 잠실 → 강남 (테헤란로 기준)
 잠실역에서 종합운동장역 사거리 직진 후
 삼성교 지나 강남경찰서 사거리 에서 좌회전.
 직진 후 400미터 지점에 위치
-     
+
 동시 000대 / 2시간 무료
 주차 공간이 충분하므로 자차 이용을 권장드립니다.
 `;
@@ -36,9 +39,14 @@ const Description = ({
   title: string;
   desc: string;
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="mx-8 my-2 p-6 border-2 border-[#FFDCDC] rounded-md">
-      <div className="flex items-center gap-1 justify-center">
+    <div className="mx-8 my-2">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full p-4 flex items-center gap-1 justify-center hover:bg-[#FFF5F5] rounded-md transition-colors cursor-pointer"
+      >
         <Image
           src={iconSrc}
           alt="map"
@@ -47,17 +55,31 @@ const Description = ({
           className="w-5 h-5 inline-block"
         />
         <div className="inline-block">{title}</div>
+        <span
+          className="ml-2 text-sm transition-transform duration-300"
+          style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+        >
+          ▼
+        </span>
+      </button>
+      <div
+        className="overflow-hidden transition-all duration-300 ease-in-out"
+        style={{
+          maxHeight: isOpen ? '500px' : '0px',
+          opacity: isOpen ? 1 : 0,
+        }}
+      >
+        <div className="px-4 pb-4 text-sm whitespace-pre-line">{desc}</div>
       </div>
-      <div className="text-sm whitespace-pre-line">{desc}</div>
     </div>
   );
 };
 
 const Map = () => {
   return (
-    <div className="flex flex-col item-center align-center text-center my-10">
-      <div>오시는 길</div>
-      <div>
+    <div className="flex flex-col item-center align-center my-10">
+      <div className="text-lg font-semibold text-center">{title}</div>
+      <div className="text-center">
         {VENUE_INFO.address} {VENUE_INFO.venueName}
       </div>
       <div>여기에 지도</div>

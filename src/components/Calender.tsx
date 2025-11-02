@@ -1,5 +1,7 @@
 import { VENUE_INFO } from '@/constants/weddingInfo';
 
+const title = 'Save the Date';
+
 const Calender = () => {
   const today = new Date();
   const diffTime = VENUE_INFO.weddingDate.getTime() - today.getTime();
@@ -7,6 +9,7 @@ const Calender = () => {
 
   return (
     <div className="flex flex-col items-center gap-2 my-10 mx-8 border-t-2 border-b-2 border-[#FFDCDC] py-2">
+      <div className="text-lg font-semibold">{title}</div>
       <div>{VENUE_INFO.weddingDateString}</div>
       <div>{VENUE_INFO.venueName}</div>
       <div>{VENUE_INFO.venueNameDetail}</div>

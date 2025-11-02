@@ -52,14 +52,14 @@ export const BRIDE_GROOM_INFO: BrideGroomInfo = {
   },
   groomParents: {
     father: {
-      name: '심○○',
+      name: '심대택',
       phone: '010-1234-5678',
       bankName: '국민은행',
       accountNumber: '123456-78-901234',
       accountHolder: '김영호',
     },
     mother: {
-      name: '이○○',
+      name: '안미영',
       phone: '010-1234-5678',
       bankName: '국민은행',
       accountNumber: '123456-78-901234',
