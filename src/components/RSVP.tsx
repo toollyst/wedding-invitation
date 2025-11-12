@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import ScrollFadeIn from './ScrollFadeIn';
 
 const title = '참석 여부 전달';
 const message = `
@@ -22,8 +23,10 @@ const RSVP = () => {
   };
 
   return (
-    <div className="flex flex-col items-center text-center mx-8 my-10 p-6 border-[#FFDCDC] border-2 rounded-md">
-      <div className="text-lg font-semibold mb-4">{title}</div>
+    <div className="flex flex-col items-center text-center mx-8 my-10 p-6 border-2 rounded-md" style={{ borderColor: 'var(--color-line)' }}>
+      <ScrollFadeIn>
+        <h3>{title}</h3>
+      </ScrollFadeIn>
       <div className="whitespace-pre-line break-keep text-sm mb-6">
         {message}
       </div>
@@ -106,7 +109,8 @@ const RSVP = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="이름을 입력해주세요"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFDCDC]"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2"
+            style={{ borderColor: 'var(--color-line)', '--tw-ring-color': 'var(--color-secondary)' } as any}
             required
           />
         </div>
@@ -122,7 +126,8 @@ const RSVP = () => {
                 max="10"
                 value={guestCount}
                 onChange={(e) => setGuestCount(parseInt(e.target.value) || 1)}
-                className="w-20 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFDCDC]"
+                className="w-20 px-3 py-2 border rounded-md focus:outline-none focus:ring-2"
+                style={{ borderColor: 'var(--color-line)', '--tw-ring-color': 'var(--color-secondary)' } as any}
               />
               <span>명</span>
             </div>
@@ -132,7 +137,13 @@ const RSVP = () => {
         {/* 제출 버튼 */}
         <button
           type="submit"
-          className="w-full bg-[#FFDCDC] text-gray-700 py-2 px-4 rounded-md hover:bg-[#FFC7C7] transition-colors font-medium"
+          className="w-full py-2 px-4 rounded-md transition-colors font-medium"
+          style={{
+            backgroundColor: 'var(--color-secondary)',
+            color: 'var(--text-main)'
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--color-primary)'}
+          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--color-secondary)'}
         >
           참석 여부 전달하기
         </button>

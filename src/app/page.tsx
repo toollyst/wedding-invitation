@@ -1,6 +1,5 @@
 import Hero from '@/components/Hero';
 import InvitationMessage from '@/components/InvitationMessage';
-import Introduce from '@/components/Introduce';
 import Contact from '@/components/Contact';
 import Calender from '@/components/Calender';
 import Gallery from '@/components/Gallery';
@@ -12,12 +11,17 @@ import ConfettiBackground from '@/components/ConfettiBackground';
 
 export default function Page() {
   return (
-    <div className="mx-auto w-105">
+    <div className="w-full max-w-105 mx-auto overflow-x-hidden">
       <ConfettiBackground />
       <Hero />
-      <div className=" bg-gradient-to-t from-[#FFDCDF] via-[#FFDCDC]/40 to-[#FFF2EB]">
+      <div
+        className="w-full"
+        style={{
+          background:
+            'linear-gradient(to top, var(--bg-color-emphasis), var(--bg-color))',
+        }}
+      >
         <InvitationMessage />
-        <Introduce />
 
         <Calender />
         <Map />

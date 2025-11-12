@@ -1,4 +1,5 @@
 import { VENUE_INFO } from '@/constants/weddingInfo';
+import ScrollFadeIn from './ScrollFadeIn';
 
 const title = 'Save the Date';
 
@@ -8,8 +9,10 @@ const Calender = () => {
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
   return (
-    <div className="flex flex-col items-center gap-2 my-10 mx-8 border-t-2 border-b-2 border-[#FFDCDC] py-2">
-      <div className="text-lg font-semibold">{title}</div>
+    <div className="flex flex-col items-center gap-2 my-10 mx-8 border-t-2 border-b-2 py-2" style={{ borderColor: 'var(--color-line)' }}>
+      <ScrollFadeIn>
+        <h3>{title}</h3>
+      </ScrollFadeIn>
       <div>{VENUE_INFO.weddingDateString}</div>
       <div>{VENUE_INFO.venueName}</div>
       <div>{VENUE_INFO.venueNameDetail}</div>

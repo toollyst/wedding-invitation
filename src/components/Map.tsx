@@ -45,7 +45,7 @@ const Description = ({
     <div className="mx-8 my-2">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full p-4 flex items-center gap-1 justify-center hover:bg-[#FFF5F5] rounded-md transition-colors cursor-pointer"
+        className="w-full p-4 flex items-center gap-1 justify-center rounded-md transition-colors cursor-pointer hover:bg-[var(--bg-color)]"
       >
         <Image
           src={iconSrc}

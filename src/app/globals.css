@@ -1,24 +1,100 @@
 @import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #3b2b2b;
+  /* Background Colors */
+  --bg-base: #ffffff;
+  --bg-color: #fff8f6;
+  --bg-color-emphasis: #ffedea;
+
+  /* Point Colors */
+  --color-primary: #e6a19c;
+  --color-secondary: #eacbc7;
+
+  /* Text Colors */
+  --text-main: #5b4b45;
+  --text-sub: #a4938e;
+
+  /* Status Colors */
+  --color-success: #9cc9a3;
+  --color-info: #a5b8cc;
+  --color-warning: #f3c27b;
+  --color-error: #d66e6e;
+
+  /* UI Elements */
+  --color-line: #eae2de;
+  --shadow-color: rgba(90, 75, 69, 0.08);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-gowun-dodum: var(--font-gowun-dodum);
   --font-luxurious-script: var(--font-luxurious-script);
+  --font-hurricane: var(--font-hurricane);
+  --font-en-serif-garamond: var(--font-en-serif-garamond);
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fade-in-up 2s ease-out forwards;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg-base);
+  color: var(--text-main);
   font-family:
     Gowun Dodum,
     Arial,
     Helvetica,
     sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+html {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+section {
+  padding: 50px 0;
+  max-width: 100%;
+}
+
+/* title */
+h3 {
+  color: var(--color-primary);
+  font-family: var(--font-en-serif-garamond);
+  font-weight: 400;
+  font-size: 1em;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.2em;
+  margin-bottom: 20px;
+}
+
+/* description */
+p {
+  color: var(--text-main);
+  font-family: var(--font-gowun-dodum);
+  font-weight: 400;
+  font-size: 1em;
+  text-align: center;
+  white-space: pre-wrap;
 }

@@ -7,6 +7,7 @@ import 'lightgallery/css/lg-thumbnail.css';
 
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
+import ScrollFadeIn from './ScrollFadeIn';
 
 const Gallery = () => {
   const onInit = () => {
@@ -96,7 +97,9 @@ const Gallery = () => {
 
   return (
     <div className="App p-8">
-      <h2 className="text-3xl font-bold text-center mb-8">Gallery</h2>
+      <ScrollFadeIn>
+        <h3>Gallery</h3>
+      </ScrollFadeIn>
       <LightGallery
         onInit={onInit}
         speed={500}

@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className=" py-8 mt-12">
       <div className="text-center">
-        <div className="text-lg font-semibold text-gray-700 mb-2">
+        <div className="text-lg font-semibold mb-2" style={{ color: 'var(--text-main)' }}>
           감사합니다
         </div>
         <div className="text-sm flex items-center justify-center">

@@ -18,6 +18,7 @@ const ConfettiBackground: React.FC = () => {
   const { width, height } = useWindowSize();
   const [isClientSide, setIsClientSide] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  console.log(width, height);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -72,11 +73,11 @@ const ConfettiBackground: React.FC = () => {
           ctx.fill();
         }}
         colors={[
-          '#FFE4E1', // 미스트 로즈
-          '#FFF0F5', // 라이트 핑크
-          '#FFD9E6', // 살짝 보라빛
-          '#FFF8F0', // 크림톤
-          '#FFECEC', // 연한 핑크
+          '#FFF8F6', // bg-color
+          '#FFEDEA', // bg-color-emphasis
+          '#E6A19C', // color-primary
+          '#EACBC7', // color-secondary
+          '#FFFFFF', // bg-base
         ]}
       />
     </div>
