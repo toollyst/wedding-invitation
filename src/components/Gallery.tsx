@@ -7,7 +7,7 @@ import 'lightgallery/css/lg-thumbnail.css';
 
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
-import ScrollFadeIn from './ScrollFadeIn';
+import ScrollFadeIn from './common/ScrollFadeIn';
 
 const Gallery = () => {
   const onInit = () => {

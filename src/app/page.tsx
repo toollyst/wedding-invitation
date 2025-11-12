@@ -1,13 +1,14 @@
 import Hero from '@/components/Hero';
 import InvitationMessage from '@/components/InvitationMessage';
 import Contact from '@/components/Contact';
-import Calender from '@/components/Calender';
+import DateInfo from '@/components/Calender';
 import Gallery from '@/components/Gallery';
 import Map from '@/components/Map';
 import RSVP from '@/components/RSVP';
 import Bank from '@/components/Bank';
 import Footer from '@/components/Footer';
 import ConfettiBackground from '@/components/ConfettiBackground';
+import { Divider } from '@/components/common/Divider';
 
 export default function Page() {
   return (
@@ -22,14 +23,17 @@ export default function Page() {
         }}
       >
         <InvitationMessage />
-
-        <Calender />
+        <Divider />
+        <DateInfo />
+        <Divider />
         <Map />
+        <Divider />
         <RSVP />
-
+        <Divider />
         <Gallery />
-
+        <Divider />
         <Contact />
+        <Divider />
         <Bank />
 
         <Footer />

@@ -1,5 +1,5 @@
 import { BRIDE_GROOM_INFO } from '@/constants/weddingInfo';
-import ScrollFadeIn from './ScrollFadeIn';
+import ScrollFadeIn from './common/ScrollFadeIn';
 
 const title = 'We are getting married';
 
@@ -18,7 +18,7 @@ const message = `4년 전 여름, 한낮의 열기 속에서
 
 const InvitationMessage = () => {
   return (
-    <section>
+    <section className="pt-10">
       <ScrollFadeIn>
         <h3>{title}</h3>
       </ScrollFadeIn>
@@ -26,7 +26,7 @@ const InvitationMessage = () => {
         <p>{message}</p>
       </ScrollFadeIn>
       <ScrollFadeIn>
-        <div className="text-center my-10 flex flex-col items-center gap-3">
+        <div className="text-center mt-10 flex flex-col items-center gap-3">
           <p>
             {BRIDE_GROOM_INFO.groomParents.father.name}·
             {BRIDE_GROOM_INFO.groomParents.mother.name}의 장남{' '}
