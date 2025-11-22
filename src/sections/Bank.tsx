@@ -1,12 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { BRIDE_GROOM_INFO } from '@/constants/weddingInfo';
 import ScrollFadeIn from '@/components/ScrollFadeIn';
 
 const title = '마음 전하실 곳';
 
 interface BankAccountProps {
+  label: string;
   name: string;
   bankName?: string;
   accountNumber?: string;
@@ -14,6 +16,7 @@ interface BankAccountProps {
 }
 
 const BankAccount = ({
+  label,
   name,
   bankName,
   accountNumber,
@@ -38,29 +41,58 @@ const BankAccount = ({
   }
 
   return (
-    <div className="flex items-center justify-between py-2 border-b last:border-b-0 border-[var(--color-line)]">
-      <div className="text-left flex-1">
-        <p className="text-sm font-medium mb-1">{name}</p>
-        <p className="text-xs text-[var(--text-sub)]">
+    <div className="flex items-center justify-between p-3 last:pb-0 border-b last:border-b-0 border-[var(--color-line)]">
+      <div className="flex-1">
+        <p className="text-sm mb-1" style={{ textAlign: 'left' }}>
+          <span className="font-medium text-[var(--color-primary)]">
+            {label}
+          </span>{' '}
+          <span className="text-[var(--text-main)]">{name}</span>
+        </p>
+        <p
+          className="text-xs text-[var(--text-sub)]"
+          style={{ textAlign: 'left' }}
+        >
           {bankName} {accountNumber}
         </p>
-        {accountHolder && (
-          <p className="text-xs text-[var(--text-sub)]">예금주: {accountHolder}</p>
-        )}
       </div>
-      <button
-        onClick={handleCopy}
-        className="ml-4 px-3 py-1 text-xs rounded-md transition-colors"
-        style={{
-          backgroundColor: copied
-            ? 'var(--color-green)'
-            : 'var(--color-secondary)',
-          color: 'var(--text-main)',
-        }}
-        aria-label={`${name} 계좌번호 복사`}
-      >
-        {copied ? '복사됨' : '복사'}
-      </button>
+      <div className="flex items-center gap-2 ml-4 flex-shrink-0">
+        <div className="flex flex-col items-center gap-1">
+          <button
+            className="flex flex-col items-center justify-center gap-1 w-12 h-12 rounded-full"
+            style={{ backgroundColor: '#fee500' }}
+            aria-label="카카오페이로 송금하기"
+          >
+            <Image
+              src="/copy.svg"
+              alt=""
+              width={14}
+              height={14}
+              style={{ opacity: 0.7 }}
+            />
+            <span className="text-xs font-medium" style={{ color: '#3c1e1e' }}>
+              pay
+            </span>
+          </button>
+        </div>
+        <div className="flex flex-col items-center gap-1">
+          <button
+            onClick={handleCopy}
+            className="flex flex-col items-center justify-center gap-1 w-12 h-12 rounded-full transition-colors"
+            style={{
+              backgroundColor: copied
+                ? 'var(--color-green)'
+                : 'var(--color-secondary)',
+            }}
+            aria-label={`${label} ${name} 계좌번호 복사`}
+          >
+            <Image src="/copy.svg" alt="" width={14} height={14} />
+            <span className="text-xs" style={{ color: 'var(--text-main)' }}>
+              복사
+            </span>
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
@@ -77,10 +109,10 @@ const Bank = () => {
 
       <div className="w-full max-w-md space-y-4 mt-6">
         {/* 신랑측 */}
-        <div className="wedding-card">
+        <div className="p-0 overflow-hidden rounded-md">
           <button
             onClick={() => setGroomOpen(!groomOpen)}
-            className="w-full flex items-center justify-between text-left"
+            className="w-full flex items-center justify-between text-left p-4 bg-[var(--color-secondary)] rounded-t-md"
             aria-expanded={groomOpen}
             aria-controls="groom-accounts"
           >
@@ -93,35 +125,53 @@ const Bank = () => {
             </span>
           </button>
 
-          {groomOpen && (
-            <div id="groom-accounts" className="mt-4 space-y-2">
+          <div
+            id="groom-accounts"
+            className="overflow-hidden transition-all duration-800 ease-in-out border-x border-b border-[var(--color-line)] rounded-b-md"
+            style={{
+              maxHeight: groomOpen ? '500px' : '0',
+              opacity: groomOpen ? 1 : 0,
+            }}
+          >
+            <div className="px-3 pb-6 space-y-2">
               <BankAccount
-                name={`신랑 ${BRIDE_GROOM_INFO.groom.name}`}
+                label="신랑"
+                name={BRIDE_GROOM_INFO.groom.name}
                 bankName={BRIDE_GROOM_INFO.groom.bankName}
                 accountNumber={BRIDE_GROOM_INFO.groom.accountNumber}
                 accountHolder={BRIDE_GROOM_INFO.groom.accountHolder}
               />
               <BankAccount
-                name={`아버지 ${BRIDE_GROOM_INFO.groomParents.father.name}`}
+                label="아버지"
+                name={BRIDE_GROOM_INFO.groomParents.father.name}
                 bankName={BRIDE_GROOM_INFO.groomParents.father.bankName}
-                accountNumber={BRIDE_GROOM_INFO.groomParents.father.accountNumber}
-                accountHolder={BRIDE_GROOM_INFO.groomParents.father.accountHolder}
+                accountNumber={
+                  BRIDE_GROOM_INFO.groomParents.father.accountNumber
+                }
+                accountHolder={
+                  BRIDE_GROOM_INFO.groomParents.father.accountHolder
+                }
               />
               <BankAccount
-                name={`어머니 ${BRIDE_GROOM_INFO.groomParents.mother.name}`}
+                label="어머니"
+                name={BRIDE_GROOM_INFO.groomParents.mother.name}
                 bankName={BRIDE_GROOM_INFO.groomParents.mother.bankName}
-                accountNumber={BRIDE_GROOM_INFO.groomParents.mother.accountNumber}
-                accountHolder={BRIDE_GROOM_INFO.groomParents.mother.accountHolder}
+                accountNumber={
+                  BRIDE_GROOM_INFO.groomParents.mother.accountNumber
+                }
+                accountHolder={
+                  BRIDE_GROOM_INFO.groomParents.mother.accountHolder
+                }
               />
             </div>
-          )}
+          </div>
         </div>
 
         {/* 신부측 */}
-        <div className="wedding-card">
+        <div className="p-0 overflow-hidden rounded-md">
           <button
             onClick={() => setBrideOpen(!brideOpen)}
-            className="w-full flex items-center justify-between text-left"
+            className="w-full flex items-center justify-between text-left p-4 bg-[var(--color-secondary)] rounded-t-md"
             aria-expanded={brideOpen}
             aria-controls="bride-accounts"
           >
@@ -134,28 +184,46 @@ const Bank = () => {
             </span>
           </button>
 
-          {brideOpen && (
-            <div id="bride-accounts" className="mt-4 space-y-2">
+          <div
+            id="bride-accounts"
+            className="overflow-hidden transition-all duration-800 ease-in-out border-x border-b border-[var(--color-line)] rounded-b-md"
+            style={{
+              maxHeight: brideOpen ? '500px' : '0',
+              opacity: brideOpen ? 1 : 0,
+            }}
+          >
+            <div className="px-3 pb-6 space-y-2">
               <BankAccount
-                name={`신부 ${BRIDE_GROOM_INFO.bride.name}`}
+                label="신부"
+                name={BRIDE_GROOM_INFO.bride.name}
                 bankName={BRIDE_GROOM_INFO.bride.bankName}
                 accountNumber={BRIDE_GROOM_INFO.bride.accountNumber}
                 accountHolder={BRIDE_GROOM_INFO.bride.accountHolder}
               />
               <BankAccount
-                name={`아버지 ${BRIDE_GROOM_INFO.brideParents.father.name}`}
+                label="아버지"
+                name={BRIDE_GROOM_INFO.brideParents.father.name}
                 bankName={BRIDE_GROOM_INFO.brideParents.father.bankName}
-                accountNumber={BRIDE_GROOM_INFO.brideParents.father.accountNumber}
-                accountHolder={BRIDE_GROOM_INFO.brideParents.father.accountHolder}
+                accountNumber={
+                  BRIDE_GROOM_INFO.brideParents.father.accountNumber
+                }
+                accountHolder={
+                  BRIDE_GROOM_INFO.brideParents.father.accountHolder
+                }
               />
               <BankAccount
-                name={`어머니 ${BRIDE_GROOM_INFO.brideParents.mother.name}`}
+                label="어머니"
+                name={BRIDE_GROOM_INFO.brideParents.mother.name}
                 bankName={BRIDE_GROOM_INFO.brideParents.mother.bankName}
-                accountNumber={BRIDE_GROOM_INFO.brideParents.mother.accountNumber}
-                accountHolder={BRIDE_GROOM_INFO.brideParents.mother.accountHolder}
+                accountNumber={
+                  BRIDE_GROOM_INFO.brideParents.mother.accountNumber
+                }
+                accountHolder={
+                  BRIDE_GROOM_INFO.brideParents.mother.accountHolder
+                }
               />
             </div>
-          )}
+          </div>
         </div>
       </div>
     </div>
