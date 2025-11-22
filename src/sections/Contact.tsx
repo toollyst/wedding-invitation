@@ -18,6 +18,7 @@ const ContactItem = ({ name, phone }: { name: string; phone: string }) => {
         <button
           onClick={() => handlePhoneCall(phone)}
           className="p-2 rounded-full cursor-pointer transition-colors"
+          aria-label={`${name}에게 전화하기`}
         >
           <Image
             src="/phone.svg"
@@ -30,6 +31,7 @@ const ContactItem = ({ name, phone }: { name: string; phone: string }) => {
         <button
           onClick={() => handleSendMessage(phone)}
           className="p-2 rounded-full cursor-pointer transition-colors"
+          aria-label={`${name}에게 문자 보내기`}
         >
           <Image
             src="/message.svg"

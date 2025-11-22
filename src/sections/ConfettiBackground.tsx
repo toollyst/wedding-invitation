@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Confetti from 'react-confetti';
 import { useWindowSize } from 'react-use';
+import { CONFETTI_COLORS } from '@/constants/colors';
 
 /**
  * ConfettiBackground
@@ -13,12 +14,14 @@ import { useWindowSize } from 'react-use';
  * - 낮은 density로 배경 자연스러운 효과
  * - 모바일에서 FPS 부담 완화
  * - 터치나 스크롤과 독립된 absolute layer
+ * - 15초 후 페이드아웃 및 중지
  */
 const ConfettiBackground: React.FC = () => {
   const { width, height } = useWindowSize();
   const [isClientSide, setIsClientSide] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  console.log(width, height);
+  const [opacity, setOpacity] = useState(1);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -30,7 +33,25 @@ const ConfettiBackground: React.FC = () => {
     setIsMobile(window.innerWidth < 768);
   }, []);
 
-  if (!isClientSide) {
+  // 15초 후 페이드아웃 효과
+  useEffect(() => {
+    // 10초 후 페이드 시작
+    const fadeTimer = setTimeout(() => {
+      setOpacity(0);
+    }, 10000);
+
+    // 15초 후 완전히 제거
+    const removeTimer = setTimeout(() => {
+      setIsVisible(false);
+    }, 15000);
+
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(removeTimer);
+    };
+  }, []);
+
+  if (!isClientSide || !isVisible) {
     return null;
   }
 
@@ -42,18 +63,20 @@ const ConfettiBackground: React.FC = () => {
         zIndex: 10,
         pointerEvents: 'none',
         overflow: 'hidden',
+        opacity: opacity,
+        transition: 'opacity 5s ease-out',
       }}
     >
       <Confetti
         width={width}
         height={height}
         recycle={true}
-        numberOfPieces={isMobile ? 20 : 40} // 훨씬 적게 (잔잔한 느낌)
-        gravity={0.06} // 낙하속도 ↓
-        wind={0.035} // 살짝 바람 흔들림
-        opacity={0.75} // 은은하게
+        numberOfPieces={isMobile ? 20 : 40}
+        gravity={0.06}
+        wind={0.035}
+        opacity={0.75}
         initialVelocityY={1.5}
-        tweenDuration={14000} // 천천히 움직이도록
+        tweenDuration={14000}
         friction={0.99}
         drawShape={(ctx) => {
           // 부드러운 꽃잎 형태
@@ -72,13 +95,7 @@ const ConfettiBackground: React.FC = () => {
           ctx.closePath();
           ctx.fill();
         }}
-        colors={[
-          '#FFF8F6', // bg-color
-          '#FFEDEA', // bg-color-emphasis
-          '#E6A19C', // color-primary
-          '#EACBC7', // color-secondary
-          '#FFFFFF', // bg-base
-        ]}
+        colors={CONFETTI_COLORS}
       />
     </div>
   );

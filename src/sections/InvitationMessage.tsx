@@ -1,5 +1,5 @@
 import { BRIDE_GROOM_INFO } from '@/constants/weddingInfo';
-import ScrollFadeIn from './common/ScrollFadeIn';
+import ScrollFadeIn from '@/components/ScrollFadeIn';
 
 const title = 'We are getting married';
 

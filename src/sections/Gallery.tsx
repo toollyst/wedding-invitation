@@ -7,13 +7,9 @@ import 'lightgallery/css/lg-thumbnail.css';
 
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
-import ScrollFadeIn from './common/ScrollFadeIn';
+import ScrollFadeIn from '@/components/ScrollFadeIn';
 
 const Gallery = () => {
-  const onInit = () => {
-    console.log('lightGallery has been initialized');
-  };
-
   const images = [
     {
       id: '1',
@@ -101,7 +97,6 @@ const Gallery = () => {
         <h3>Gallery</h3>
       </ScrollFadeIn>
       <LightGallery
-        onInit={onInit}
         speed={500}
         plugins={[lgThumbnail, lgZoom]}
         elementClassNames="grid grid-cols-2 gap-2"

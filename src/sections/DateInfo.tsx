@@ -1,6 +1,6 @@
 import { VENUE_INFO } from '@/constants/weddingInfo';
-import ScrollFadeIn from './common/ScrollFadeIn';
-import { Calendar } from './common/Calendar';
+import ScrollFadeIn from '@/components/ScrollFadeIn';
+import { Calendar } from '@/components/Calendar';
 
 const title = 'Save the Date';
 

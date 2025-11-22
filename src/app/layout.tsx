@@ -1,23 +1,6 @@
 import type { Metadata } from 'next';
-import {
-  Geist,
-  Geist_Mono,
-  Gowun_Dodum,
-  Luxurious_Script,
-  Hurricane,
-  EB_Garamond,
-} from 'next/font/google';
+import { Gowun_Dodum, Luxurious_Script, Hurricane } from 'next/font/google';
 import './globals.css';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
 
 const gowunDodum = Gowun_Dodum({
   variable: '--font-gowun-dodum',
@@ -35,12 +18,6 @@ const hurricane = Hurricane({
   variable: '--font-hurricane',
   subsets: ['latin'],
   weight: ['400'],
-});
-
-const enSerifGaramond = EB_Garamond({
-  variable: '--font-en-serif-garamond',
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {

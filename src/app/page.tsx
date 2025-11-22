@@ -1,14 +1,14 @@
-import Hero from '@/components/Hero';
-import InvitationMessage from '@/components/InvitationMessage';
-import Contact from '@/components/Contact';
-import DateInfo from '@/components/Calender';
-import Gallery from '@/components/Gallery';
-import Map from '@/components/Map';
-import RSVP from '@/components/RSVP';
-import Bank from '@/components/Bank';
-import Footer from '@/components/Footer';
-import ConfettiBackground from '@/components/ConfettiBackground';
-import { Divider } from '@/components/common/Divider';
+import Hero from '@/sections/Hero';
+import InvitationMessage from '@/sections/InvitationMessage';
+import Contact from '@/sections/Contact';
+import DateInfo from '@/sections/DateInfo';
+import Gallery from '@/sections/Gallery';
+import Map from '@/sections/Map';
+import RSVP from '@/sections/RSVP';
+import Bank from '@/sections/Bank';
+import Footer from '@/sections/Footer';
+import ConfettiBackground from '@/sections/ConfettiBackground';
+import { Divider } from '@/components/Divider';
 
 export default function Page() {
   return (

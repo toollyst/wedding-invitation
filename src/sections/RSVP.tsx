@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import ScrollFadeIn from './common/ScrollFadeIn';
+import ScrollFadeIn from '@/components/ScrollFadeIn';
 
 const title = '참석 여부 전달';
 const message = `
@@ -15,18 +15,51 @@ const RSVP = () => {
   const [attendance, setAttendance] = useState('');
   const [name, setName] = useState('');
   const [guestCount, setGuestCount] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<{
+    type: 'success' | 'error';
+    text: string;
+  } | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ side, attendance, name, guestCount });
-    // 여기에 폼 제출 로직 추가
+
+    setIsSubmitting(true);
+    setSubmitMessage(null);
+
+    try {
+      const response = await fetch('/api/rsvp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ side, attendance, name, guestCount }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitMessage({ type: 'success', text: data.message });
+        // 폼 초기화
+        setSide('');
+        setAttendance('');
+        setName('');
+        setGuestCount(1);
+      } else {
+        setSubmitMessage({ type: 'error', text: data.error });
+      }
+    } catch (error) {
+      setSubmitMessage({
+        type: 'error',
+        text: '제출 중 오류가 발생했습니다.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <div
-      className="flex flex-col items-center text-center mx-8 my-10 p-6 border-2 rounded-md"
-      style={{ borderColor: 'var(--color-line)' }}
-    >
+    <div className="flex flex-col items-center text-center mx-8 my-10 wedding-card">
       <ScrollFadeIn>
         <h3>{title}</h3>
       </ScrollFadeIn>
@@ -112,13 +145,7 @@ const RSVP = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="이름을 입력해주세요"
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2"
-            style={
-              {
-                borderColor: 'var(--color-line)',
-                '--tw-ring-color': 'var(--color-secondary)',
-              } as any
-            }
+            className="wedding-input"
             required
           />
         </div>
@@ -134,35 +161,40 @@ const RSVP = () => {
                 max="10"
                 value={guestCount}
                 onChange={(e) => setGuestCount(parseInt(e.target.value) || 1)}
-                className="w-20 px-3 py-2 border rounded-md focus:outline-none focus:ring-2"
-                style={
-                  {
-                    borderColor: 'var(--color-line)',
-                    '--tw-ring-color': 'var(--color-secondary)',
-                  } as any
-                }
+                className="wedding-input w-20"
               />
               <span>명</span>
             </div>
           </div>
         )}
 
+        {/* 제출 메시지 */}
+        {submitMessage && (
+          <div
+            className="p-3 rounded-md text-sm"
+            style={{
+              backgroundColor:
+                submitMessage.type === 'success'
+                  ? 'var(--color-green)'
+                  : 'var(--color-red)',
+              color: 'var(--text-white)',
+            }}
+          >
+            {submitMessage.text}
+          </div>
+        )}
+
         {/* 제출 버튼 */}
         <button
           type="submit"
-          className="w-full py-2 px-4 rounded-md transition-colors font-medium"
+          className="wedding-button"
+          disabled={isSubmitting}
           style={{
-            backgroundColor: 'var(--color-secondary)',
-            color: 'var(--text-main)',
+            opacity: isSubmitting ? 0.6 : 1,
+            cursor: isSubmitting ? 'not-allowed' : 'pointer',
           }}
-          onMouseEnter={(e) =>
-            (e.currentTarget.style.backgroundColor = 'var(--color-primary)')
-          }
-          onMouseLeave={(e) =>
-            (e.currentTarget.style.backgroundColor = 'var(--color-secondary)')
-          }
         >
-          참석 여부 전달하기
+          {isSubmitting ? '제출 중...' : '참석 여부 전달하기'}
         </button>
       </form>
     </div>
