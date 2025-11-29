@@ -12,7 +12,7 @@ import { Divider } from '@/components/Divider';
 
 export default function Page() {
   return (
-    <div className="w-full max-w-105 mx-auto overflow-x-hidden">
+    <div className="basic-container w-full max-w-105 mx-auto overflow-x-hidden">
       <ConfettiBackground />
       <Hero />
       <div

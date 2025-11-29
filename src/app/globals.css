@@ -54,11 +54,6 @@
 body {
   background: var(--bg-base);
   color: var(--text-main);
-  font-family:
-    Gowun Dodum,
-    Arial,
-    Helvetica,
-    sans-serif;
   overflow-x: hidden;
   width: 100%;
 }
@@ -77,10 +72,18 @@ section {
   max-width: 100%;
 }
 
+/* Basic Feature Container */
+.basic-container {
+  font-family: 'Gowun Dodum', Arial, Helvetica, sans-serif;
+}
+
+.basic-container h3 {
+  font-family: var(--font-en-serif-garamond);
+}
+
 /* title */
 h3 {
   color: var(--color-primary);
-  font-family: var(--font-en-serif-garamond);
   font-weight: 400;
   font-size: 1em;
   text-transform: uppercase;
@@ -91,7 +94,6 @@ h3 {
 
 h5 {
   color: var(--text-main);
-  font-family: var(--font-gowun-dodum);
   font-weight: 500;
   font-size: 1em;
   text-align: center;
@@ -101,7 +103,6 @@ h5 {
 /* description */
 p {
   color: var(--text-main);
-  font-family: var(--font-gowun-dodum);
   font-weight: 400;
   font-size: 0.9em;
   white-space: pre-wrap;
@@ -180,6 +181,10 @@ p {
   background: var(--ig-bg-primary);
   min-height: 100dvh;
   position: relative;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif;
+  color: var(--ig-text-primary);
 }
 
 /* Instagram Button Styles */
@@ -199,7 +204,7 @@ p {
 }
 
 .ig-button-secondary {
-  background: #efefef;
+  background: #f0f2f5;
   color: var(--ig-text-primary);
   border-radius: 8px;
   font-weight: 600;
