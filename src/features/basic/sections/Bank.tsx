@@ -43,16 +43,13 @@ const BankAccount = ({
   return (
     <div className="flex items-center justify-between p-3 last:pb-0 border-b last:border-b-0 border-[var(--color-line)]">
       <div className="flex-1">
-        <p className="text-sm mb-1" style={{ textAlign: 'left' }}>
+        <p className="text-sm mb-1">
           <span className="font-medium text-[var(--color-primary)]">
             {label}
           </span>{' '}
           <span className="text-[var(--text-main)]">{name}</span>
         </p>
-        <p
-          className="text-xs text-[var(--text-sub)]"
-          style={{ textAlign: 'left' }}
-        >
+        <p className="text-xs text-[var(--text-sub)]">
           {bankName} {accountNumber}
         </p>
       </div>

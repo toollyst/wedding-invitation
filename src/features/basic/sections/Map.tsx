@@ -81,7 +81,7 @@ const Description = ({
 
 const Map = () => {
   return (
-    <div className="flex flex-col item-center align-center my-10">
+    <div className="flex flex-col item-center align-center my-10 text-center">
       <h3>{title}</h3>
       <p>
         {VENUE_INFO.address} {VENUE_INFO.venueName}

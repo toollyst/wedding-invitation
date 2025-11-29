@@ -10,7 +10,7 @@ const DateInfo = () => {
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
   return (
-    <div className="flex flex-col items-center gap-4 px-4">
+    <div className="flex flex-col items-center gap-4 px-4 text-center">
       <ScrollFadeIn>
         <h3>{title}</h3>
       </ScrollFadeIn>
