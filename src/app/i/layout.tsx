@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import { BottomNavigation } from '@/features/instagram/components/layout';
+import { ToastProvider } from '@/features/instagram/contexts/ToastContext';
+import { Toast } from '@/features/instagram/components/common/Toast';
 
 export const metadata: Metadata = {
   title: '심상원 ♥ 김예현 결혼합니다',
@@ -17,16 +19,19 @@ export default function InstagramLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="ig-container">
-      <main
-        style={{
-          paddingBottom: 'calc(var(--ig-nav-height) + var(--ig-safe-area-bottom))',
-          minHeight: '100dvh',
-        }}
-      >
-        {children}
-      </main>
-      <BottomNavigation />
-    </div>
+    <ToastProvider>
+      <div className="ig-container">
+        <main
+          style={{
+            paddingBottom: 'calc(var(--ig-nav-height) + var(--ig-safe-area-bottom))',
+            minHeight: '100dvh',
+          }}
+        >
+          {children}
+        </main>
+        <BottomNavigation />
+      </div>
+      <Toast />
+    </ToastProvider>
   );
 }

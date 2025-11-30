@@ -19,12 +19,9 @@ export const ProfileStats = ({ stats }: ProfileStatsProps) => {
             className="font-semibold text-base"
             style={{ color: 'var(--ig-text-primary)' }}
           >
-            {item.value.toLocaleString()}
+            {item.value}
           </span>
-          <span
-            className="text-sm"
-            style={{ color: 'var(--ig-text-primary)' }}
-          >
+          <span className="text-sm" style={{ color: 'var(--ig-text-primary)' }}>
             {item.label}
           </span>
         </div>

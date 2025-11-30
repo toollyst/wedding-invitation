@@ -154,17 +154,16 @@ p {
   --ig-text-secondary: #8e8e8e;
   --ig-text-tertiary: #737373;
   --ig-blue: #0095f6;
+  --ig-button-primary: #4a5df9;
   --ig-red: #ed4956;
   --ig-link: #00376b;
 
   /* Instagram Story Ring Gradient */
   --ig-story-gradient: linear-gradient(
     45deg,
-    #f09433 0%,
-    #e6683c 25%,
-    #dc2743 50%,
-    #cc2366 75%,
-    #bc1888 100%
+    #c913b9 0%,
+    #f9373f 50%,
+    #fecd00 100%
   );
 
   /* Instagram Layout */

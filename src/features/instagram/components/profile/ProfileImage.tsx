@@ -15,7 +15,7 @@ export const ProfileImage = ({
   onClick,
   showStoryRing = true,
 }: ProfileImageProps) => {
-  const imageSize = showStoryRing ? size - 8 : size;
+  const imageSize = showStoryRing ? size - 6 : size;
 
   const imageElement = (
     <div
@@ -23,7 +23,7 @@ export const ProfileImage = ({
       style={{
         width: imageSize,
         height: imageSize,
-        padding: showStoryRing ? 2 : 0,
+        padding: showStoryRing ? 4 : 0,
       }}
     >
       <Image
