@@ -316,7 +316,48 @@ BRIDE_GROOM_INFO = {
 --ig-max-width: 430px;
 ```
 
+### Global Element Styles
+
+```css
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+ul, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+::selection {
+  background-color: var(--color-primary);
+  color: white;
+}
+@media (prefers-reduced-motion: reduce) {
+  /* Disables animations for accessibility */
+}
+```
+
 ### Custom Utility Classes
+
+**Global**:
+
+```css
+.scrollbar-hide {
+  /* Hides scrollbar while keeping scroll functionality */
+}
+```
 
 **Basic Feature**:
 
@@ -385,7 +426,7 @@ Located in `/public/`:
 - `phone.svg`, `message.svg` - Contact
 - `heart.svg`, `heart_pink.svg` - Footer, Calendar
 - `car.svg`, `metro.svg`, `bus.svg` - Map transport
-- `copy.svg` - Clipboard copy
+- `copy.svg`, `check.svg` - Clipboard copy/copied state
 
 ---
 

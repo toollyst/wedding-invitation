@@ -45,7 +45,7 @@ export const Header = ({ onAddClick }: HeaderProps) => {
         >
           {PROFILE_DATA.username}
         </span>
-        <span className="ig-badge-verified">10+</span>
+
         <Image
           src="/Name=Arrow Down, State=default, Dark=no.svg"
           alt="Dropdown"
@@ -57,11 +57,7 @@ export const Header = ({ onAddClick }: HeaderProps) => {
 
       {/* Action icons */}
       <div className="flex items-center gap-4">
-        <button
-          onClick={onAddClick}
-          className="p-1"
-          aria-label="Add new post"
-        >
+        <button onClick={onAddClick} className="p-1" aria-label="Add new post">
           <Image
             src="/Name=Add, State=default, Dark=no.svg"
             alt="Add"
@@ -69,11 +65,7 @@ export const Header = ({ onAddClick }: HeaderProps) => {
             height={24}
           />
         </button>
-        <button
-          onClick={handleShare}
-          className="p-1"
-          aria-label="Share"
-        >
+        <button onClick={handleShare} className="p-1" aria-label="Share">
           {/* TODO: 적절한 공유 아이콘으로 교체 필요 */}
           <Image
             src="/Name=Messenger, State=default, Dark=no.svg"

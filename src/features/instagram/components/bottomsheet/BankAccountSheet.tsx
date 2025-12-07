@@ -12,7 +12,12 @@ interface BankAccountCardProps {
   accountNumber?: string;
 }
 
-const BankAccountCard = ({ label, name, bankName, accountNumber }: BankAccountCardProps) => {
+const BankAccountCard = ({
+  label,
+  name,
+  bankName,
+  accountNumber,
+}: BankAccountCardProps) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -61,15 +66,20 @@ const BankAccountCard = ({ label, name, bankName, accountNumber }: BankAccountCa
           onClick={handleCopy}
           className="flex items-center gap-1 px-3 py-2 rounded-md transition-colors"
           style={{
-            background: copied ? '#22c55e' : 'var(--ig-bg-primary)',
-            border: copied ? 'none' : '1px solid var(--ig-border)',
+            background: 'var(--ig-bg-primary)',
+            border: '1px solid var(--ig-border)',
           }}
           aria-label={`${name} 계좌번호 복사`}
         >
-          <Image src="/copy.svg" alt="" width={14} height={14} />
+          <Image
+            src={copied ? '/check.svg' : '/copy.svg'}
+            alt=""
+            width={14}
+            height={14}
+          />
           <span
             className="text-xs font-medium"
-            style={{ color: copied ? 'white' : 'var(--ig-text-primary)' }}
+            style={{ color: 'var(--ig-text-primary)' }}
           >
             {copied ? '복사됨' : '복사'}
           </span>
@@ -84,9 +94,12 @@ interface BankAccountSheetProps {
   onClose: () => void;
 }
 
-export const BankAccountSheet = ({ isOpen, onClose }: BankAccountSheetProps) => {
+export const BankAccountSheet = ({
+  isOpen,
+  onClose,
+}: BankAccountSheetProps) => {
   return (
-    <BottomSheet isOpen={isOpen} onClose={onClose} title="축하의 마음을 전해주세요 💐">
+    <BottomSheet isOpen={isOpen} onClose={onClose} title="마음 전하실곳 💐">
       <div className="space-y-6">
         {/* 신랑측 */}
         <div>

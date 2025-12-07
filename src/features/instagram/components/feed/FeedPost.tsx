@@ -95,7 +95,7 @@ export const FeedPost = ({ imageSrc, index }: FeedPostProps) => {
           className="mt-2 font-semibold text-sm text-left"
           style={{ color: 'var(--ig-text-primary)' }}
         >
-          좋아요 {Math.floor(Math.random() * 500) + 100}개
+          좋아요 {((index + 1) * 127) % 500 + 100}개
         </p>
 
         {/* Caption */}

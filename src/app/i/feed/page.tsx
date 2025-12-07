@@ -13,17 +13,16 @@ export default function FeedPage() {
         className="sticky top-0 bg-white z-20 flex items-center justify-between px-4"
         style={{
           height: 'var(--ig-header-height)',
-          borderBottom: '1px solid var(--ig-border)',
         }}
       >
         <Image
-          src="/images/wedding10.jpg"
+          src="/IG logo.svg"
           alt="Logo"
-          width={100}
-          height={30}
-          className="h-7 w-auto"
+          width={103}
+          height={29}
+          className="h-[29px] w-auto"
         />
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <button className="p-1" aria-label="Like">
             <Image
               src="/Name=Like, State=default, Dark=no.svg"
@@ -45,7 +44,7 @@ export default function FeedPage() {
 
       {/* Stories Row */}
       <div
-        className="px-2 py-3 overflow-x-auto border-b"
+        className="px-2 py-3 overflow-x-auto scrollbar-hide border-b"
         style={{ borderColor: 'var(--ig-border)' }}
       >
         <div className="flex gap-4">

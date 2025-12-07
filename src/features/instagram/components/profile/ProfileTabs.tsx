@@ -24,10 +24,7 @@ export const ProfileTabs = ({ activeTab, onTabChange }: ProfileTabsProps) => {
   ];
 
   return (
-    <div
-      className="flex border-t mt-4"
-      style={{ borderColor: 'var(--ig-border)' }}
-    >
+    <div className="flex border-t mt-4">
       {tabs.map((tab) => (
         <button
           key={tab.id}
