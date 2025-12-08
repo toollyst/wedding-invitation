@@ -1,9 +1,5 @@
-import { InstagramMain } from '@/features/instagram/Main';
+import { InstagramMainPage } from '@/features/instagram/pages/main';
 
-export default function InstagramPage() {
-  return (
-    <div>
-      <InstagramMain />
-    </div>
-  );
+export default function Page() {
+  return <InstagramMainPage />;
 }
