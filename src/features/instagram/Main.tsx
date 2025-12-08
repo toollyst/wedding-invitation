@@ -28,35 +28,6 @@ export const InstagramMain = () => {
 
   return (
     <>
-      {/* Profile Section */}
-      <div className="py-4">
-        {/* Profile Image and Stats Row */}
-        <div className="flex items-center gap-6 px-4">
-          <ProfileImage
-            src="/images/wedding10.jpg"
-            onClick={() => {
-              // Could open first story highlight
-            }}
-          />
-          <ProfileStats stats={PROFILE_DATA.stats} />
-        </div>
-
-        {/* Bio */}
-        <ProfileBio onVenueClick={handleVenueClick} />
-
-        {/* Followers */}
-        <ProfileFollowers />
-
-        {/* Action Buttons */}
-        <ProfileActions
-          onRSVPClick={() => setActiveSheet('rsvp')}
-          onBankClick={() => setActiveSheet('bank')}
-        />
-
-        {/* Story Highlights */}
-        <StoryHighlights onHighlightClick={setActiveStory} />
-      </div>
-
       {/* Profile Tabs */}
       <ProfileTabs activeTab={activeTab} onTabChange={setActiveTab} />
 

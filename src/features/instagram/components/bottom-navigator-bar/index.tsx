@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ProfileAvatar } from '../profile-avatar';
+import { InstagramAvatar } from '../instagram-avatar';
 import { usePathname } from 'next/navigation';
 
 export function BottomNavigatorBar() {
@@ -21,7 +21,7 @@ export function BottomNavigatorBar() {
         return (
           <Link key={item.id} className="p-2" href={item.path}>
             {item.path === '/i' ? (
-              <ProfileAvatar
+              <InstagramAvatar
                 size={24}
                 src={'/images/wedding10.jpg'}
                 ring={isActive(item)}

@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
 
-type ProfileAvatarProps = {
+type InstagramAvatarProps = {
   size: number; // Avatar 실제 사이즈
   padding?: number; // Avatar ↔ Ring 사이 간격
   ringWidth?: number; // Ring stroke width
@@ -12,14 +12,14 @@ type ProfileAvatarProps = {
   onClick?: () => void;
 };
 
-export function ProfileAvatar({
+export function InstagramAvatar({
   size,
   padding = 2,
   ringWidth = 2,
   ring = true,
   src,
   onClick,
-}: ProfileAvatarProps) {
+}: InstagramAvatarProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   // 총 크기 = 아바타 + 패딩*2 + 링두께*2
