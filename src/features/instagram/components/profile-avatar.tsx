@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef } from 'react';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
 
@@ -7,6 +9,7 @@ type ProfileAvatarProps = {
   ringWidth?: number; // Ring stroke width
   ring?: boolean; // Ring on/off
   src: string;
+  onClick?: () => void;
 };
 
 export function ProfileAvatar({
@@ -15,6 +18,7 @@ export function ProfileAvatar({
   ringWidth = 2,
   ring = true,
   src,
+  onClick,
 }: ProfileAvatarProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -60,6 +64,7 @@ export function ProfileAvatar({
         width: outerSize,
         height: outerSize,
       }}
+      onClick={onClick}
     >
       {ring && (
         <canvas

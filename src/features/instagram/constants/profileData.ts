@@ -1,8 +1,13 @@
-import type { StoryHighlight, ProfileStats, GuestbookEntry } from '../types/instagram';
+import type {
+  StoryHighlight,
+  ProfileStats,
+  GuestbookEntry,
+} from '../types/instagram';
 
 export const PROFILE_DATA = {
   username: 'SangWon.Yehyun',
   displayName: '심상원 & 김예현',
+  imageUrl: '/images/wedding10.jpg',
   bio: `We are getting married!
 2026/09/05 (SAT) AM 11:30`,
   stats: {
@@ -35,7 +40,8 @@ export const STORY_HIGHLIGHTS: StoryHighlight[] = [
         type: 'text',
         image: '/images/wedding2.jpg',
         title: '신랑 심상원',
-        description: '당신을 만나 세상이 더 아름다워졌습니다\n평생 곁에서 함께하겠습니다',
+        description:
+          '당신을 만나 세상이 더 아름다워졌습니다\n평생 곁에서 함께하겠습니다',
       },
     ],
   },

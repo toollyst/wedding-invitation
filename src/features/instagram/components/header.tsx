@@ -1,7 +1,7 @@
 'use client';
 
 import { MenuIcon, SquarePlusIcon } from 'lucide-react';
-import { PROFILE_DATA } from '../../constants/profileData';
+import { PROFILE_DATA } from '../constants/profileData';
 import { Button } from '@/components/ui/button';
 
 export function InstagramHeader() {

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { Header } from './components/layout';
 import {
   ProfileImage,
   ProfileStats,
@@ -29,16 +28,10 @@ export const InstagramMain = () => {
 
   return (
     <>
-      <Header
-        onAddClick={() => {
-          window.location.href = '/i/guestbook/write';
-        }}
-      />
-
       {/* Profile Section */}
       <div className="py-4">
         {/* Profile Image and Stats Row */}
-        <div className="flex items-center px-4 gap-6">
+        <div className="flex items-center gap-6 px-4">
           <ProfileImage
             src="/images/wedding10.jpg"
             onClick={() => {
