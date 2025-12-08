@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ProfileAvatar } from './profile-avatar';
+import { ProfileAvatar } from '../profile-avatar';
 import { usePathname } from 'next/navigation';
 
 export function BottomNavigatorBar() {
@@ -21,7 +21,12 @@ export function BottomNavigatorBar() {
         return (
           <Link key={item.id} className="p-2" href={item.path}>
             {item.path === '/i' ? (
-              <ProfileAvatar className="size-6" selected={isActive(item)} />
+              <ProfileAvatar
+                size={24}
+                src={'/images/wedding10.jpg'}
+                ring={isActive(item)}
+                padding={0}
+              />
             ) : (
               <Image
                 src={item.defaultIcon}
